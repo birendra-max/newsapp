@@ -11,9 +11,9 @@ export default class Footer extends Component {
                         </div>
                         <div className="w-100 text-center">
                             <ul className="list-unstyled d-flex justify-content-center gap-3 mb-0">
-                                <li><a href="#" className=" text-light">Contact</a></li>
-                                <li className="mx-4"><a href="#" className="text-light">Privacy Policy</a></li>
-                                <li><a href="#" className=" text-light">Terms of Use</a></li>
+                                <li><a href="/" className=" text-light text-decoration-none">Contact</a></li>
+                                <li className="mx-4"><a href="/" className="text-light text-decoration-none">Privacy Policy</a></li>
+                                <li><a href="/" className=" text-light text-decoration-none">Terms of Use</a></li>
                             </ul>
                         </div>
                     </div>
