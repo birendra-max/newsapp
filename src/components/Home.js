@@ -6,12 +6,11 @@ export default class Home extends Component {
   render() {
     return (
       <>
-
         <div className='container'>
-            <h1 className='text-dark fs-2 fw-bold my-3 border-bottom border-warning border-5'>Latest News</h1>
-            <NewsComponent/>
+          <h1 className='text-dark fs-2 fw-bold my-3 border-bottom border-warning border-5'>Latest News</h1>
+          <NewsComponent/>
         </div>
-        <Footer/>
+        <Footer />
       </>
     )
   }

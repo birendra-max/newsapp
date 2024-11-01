@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import '../App.css'
+import React, { Component } from 'react';
+import '../App.css';
+
 export default class NewsItem extends Component {
     render() {
-        let { source, author, title, description, url, urlToImage, publishedAt, content, newnews } = this.props;
+        let { key, source, author, title, description, url, urlToImage, publishedAt, content, newnews } = this.props;
         let date = new Date(publishedAt);
         let formatePubDate = date.toISOString().split('T')[0];
         let today = new Date();
@@ -12,17 +13,17 @@ export default class NewsItem extends Component {
 
         return (
             <>
-                <a href={url} className="d-flex justify-content-center align-items-center bg-gradient text-decoration-none" style={{ background: "linear-gradient(to bottom right, #e9d5ff, #c3dafe)", height: "70vh" }}>
+                <a href={url} id={key} className="d-flex justify-content-center align-items-center bg-gradient text-decoration-none" style={{ background: "linear-gradient(to bottom right, #e~9d5ff, #c3dafe)", height: "70vh" }}>
                     <div className="card shadow-lg overflow-hidden transform transition duration-500 hover:scale-105" style={{ maxWidth: "100%", height: "100%" }}>
                         <div className="position-relative">
-                            <img className="card-img-top" src={urlToImage} alt="Nature scene" style={{ height: "30vh" }} />
-                            <div className="position-absolute top-0 end-0 bg-teal text-white fw-bold px-2 py-1 m-2 rounded text-sm font-weight-bold">
-                                {((formatePubDate === formattedDate) ? 'New' : '')}
+                            <img className="card-img-top" src={urlToImage || 'https://focusnews24x7.com/wp-content/uploads/2022/08/123-white.png'} alt="Nature scene" style={{ height: "30vh" }} />
+                            <div className="position-absolute top-0 end-0 bg-teal fw-bold px-2 py-1 m-2 rounded text-sm font-weight-bold text-danger">
+                                {formatePubDate === formattedDate ? 'New' : ''}
                             </div>
                         </div>
                         <div className="card-body">
-                            <h2 className="card-title mb-2 text-dark h5">{title.replace(/\s+/g, ' ').slice(0, 50) + "..."}</h2>
-                            <p className="card-text text-muted mb-4">{description.replace(/\s+/g, ' ').slice(0, 100) + '...'}</p>
+                            <h2 className="card-title mb-2 text-dark h5">{title ? title.replace(/\s+/g, ' ').slice(0, 50) + "..." : "Not Found"}</h2>
+                            <p className="card-text text-muted mb-4">{description ? description.replace(/\s+/g, ' ').slice(0, 50) + '...' : 'Not Found'}</p>
                             <div className="d-flex align-items-center mb-4">
                                 <svg className="bi bi-star-fill text-warning me-1" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                     <path d="M3.612 15.443c-.392.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.32-.158-.888.283-.95l4.898-.696 2.077-4.304c.197-.41.73-.41.927 0l2.077 4.304 4.898.696c.441.063.612.63.283.95l-3.524 3.356.83 4.73c.078.443-.354.79-.746.592l-4.222-2.211-4.222 2.211z" />
@@ -35,12 +36,10 @@ export default class NewsItem extends Component {
                                     Read More
                                 </a>
                             </div>
-
                         </div>
                     </div>
                 </a>
-
             </>
-        )
+        );
     }
 }
