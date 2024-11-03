@@ -8,8 +8,8 @@ export default class NewsComponent extends Component {
             articles: [],
             loader: false,
             page: 1,
-            pageSize: 20,
-            disabled:false,
+            pageSize: 10,
+            disabled: false,
         }
     }
 
@@ -22,7 +22,7 @@ export default class NewsComponent extends Component {
 
     handleChnagePageNext = async () => {
         if (this.state.page + 1 > Math.ceil(this.state.totalResults / this.state.pageSize)) {
-            this.setState({disabled:true});
+            this.setState({ disabled: true });
         }
         else {
             let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=9553338b85234fcd96160d02645268e5&page=${this.state.page + 1}&pageSize=${this.state.pageSize}`;
@@ -49,7 +49,8 @@ export default class NewsComponent extends Component {
     render() {
         return (
             <>
-                <div className='row'>
+                <div className='row shadow-lg mt-4'>
+                    <h1 className='text-dark fs-2 fw-bold my-3 border-bottom border-warning border-5'>Top Headliness</h1>
                     {
                         this.state.articles.map((articles) => {
                             if ((articles.title != null && articles.title != '[Removed]') && (articles.description != null && articles.description != '[Removed]')) {
@@ -60,12 +61,11 @@ export default class NewsComponent extends Component {
                         }
                         )
                     }
-                    <div className='container shadow-lg border d-flex justify-content-between align-item-center py-3'>
+                    <div className='container d-flex justify-content-between align-item-center py-3'>
                         <button disabled={this.state.page <= 1} className='btn btn-success' onClick={this.handleChnagePagePrevious}> &laquo; Previous</button>
-                        <button className='btn btn-success' id='next' disabled={this.state.disabled==true} onClick={this.handleChnagePageNext}>Next &raquo;</button>
+                        <button className='btn btn-success' id='next' disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.state.pageSize)} onClick={this.handleChnagePageNext}>Next &raquo;</button>
                     </div>
                 </div>
-
             </>
         )
     }
