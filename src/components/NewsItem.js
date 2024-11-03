@@ -13,7 +13,7 @@ export default class NewsItem extends Component {
 
         return (
             <>
-                <a href={url} id={key} className="d-flex justify-content-center align-items-center bg-gradient text-decoration-none" style={{ background: "linear-gradient(to bottom right, #e~9d5ff, #c3dafe)", height: "70vh" }}>
+                <a href={url} className="d-flex justify-content-center align-items-center bg-gradient text-decoration-none" style={{ background: "linear-gradient(to bottom right, #e~9d5ff, #c3dafe)", height: "70vh" }}>
                     <div className="card shadow-lg overflow-hidden transform transition duration-500 hover:scale-105" style={{ maxWidth: "100%", height: "100%" }}>
                         <div className="position-relative">
                             <img className="card-img-top" src={urlToImage || 'https://focusnews24x7.com/wp-content/uploads/2022/08/123-white.png'} alt="Nature scene" style={{ height: "30vh" }} />
@@ -32,9 +32,9 @@ export default class NewsItem extends Component {
                             </div>
                             <div className="d-flex justify-content-between align-items-center">
                                 <span className="h6 text-dark">{formatePubDate}</span>
-                                <a href={url} className="btn btn-success text-white font-weight-bold rounded-pill shadow-sm" type="button" style={{ float: "right" }}>
+                                <button className="btn btn-success text-white font-weight-bold rounded-pill shadow-sm" type="button" style={{ float: "right" }}>
                                     Read More
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
