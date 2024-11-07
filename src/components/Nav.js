@@ -18,13 +18,13 @@ export default class Nav extends Component {
                                     <Link to="/" className="nav-link active text-light border-bottom-hover" aria-current="page"><i class="fa-solid fa-house"></i> Home</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/About" className="nav-link active text-light border-bottom-hover" aria-current="page"> About</Link>
+                                    <Link to="/About" className="nav-link active text-light border-bottom-hover" aria-current="page"><i class="fa-solid fa-user"></i> About</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/Contact" className="nav-link active text-light border-bottom-hover" aria-current="page"><i class="fa-solid fa-house"></i> Contact</Link>
+                                    <Link to="/Contact" className="nav-link active text-light border-bottom-hover" aria-current="page"><i class="fa-sharp-duotone fa-solid fa-phone"></i> Contact</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/Login" className="nav-link active text-light border-bottom-hover" aria-current="page">Log-in</Link>
+                                    <Link to="/Login" className="nav-link active text-light border-bottom-hover" aria-current="page"><i class="fa-solid fa-right-to-bracket"></i> Log-in</Link>
                                 </li>
                             </ul>
                             <form className="d-flex" role="search">
