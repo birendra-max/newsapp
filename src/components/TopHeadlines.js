@@ -11,6 +11,7 @@ export default class NewsComponent extends Component {
             page: 1,
             pageSize: 10,
             disabled: false,
+            status: false
         };
     }
 
@@ -19,7 +20,7 @@ export default class NewsComponent extends Component {
         this.setState({ loader: true });
         let data = await fetch(url);
         let parseData = await data.json();
-        this.setState({ articles: parseData.articles, totalResults: parseData.totalResults, loader: false });
+        this.setState({ articles: (parseData.articles) ? parseData.articles : [], totalResults: parseData.totalResults, loader: false, status: parseData.status });
     }
 
     handleChnagePageNext = async () => {
@@ -30,8 +31,9 @@ export default class NewsComponent extends Component {
             let parseData = await data.json();
             this.setState({
                 page: this.state.page + 1,
-                articles: parseData.articles,
-                loader: false
+                articles: (parseData.articles) ? parseData.articles : [],
+                loader: false,
+                status: parseData.status
             });
         }
     }
@@ -43,45 +45,50 @@ export default class NewsComponent extends Component {
         let parseData = await data.json();
         this.setState({
             page: this.state.page - 1,
-            articles: parseData.articles,
-            loader: false
+            articles: (parseData.articles) ? parseData.articles : [],
+            loader: false,
+            status: parseData.status
         });
     }
 
     render() {
         return (
             <>
-                <div className='row shadow-lg mt-4 '>
-                    <h1 className='text-dark fs-2 fw-bold my-3 border-bottom border-warning border-5'>Top Headlines</h1>
-                    {this.state.loader ? (
-                        <div className='container d-flex justify-content-center align-items-center'>
-                            <Loader />
-                        </div>
-                    ) : (
-                        this.state.articles.map((article) => {
-                            if (
-                                article.title && article.title !== '[Removed]' &&
-                                article.description && article.description !== '[Removed]'
-                            ) {
-                                return (
-                                    <div className='col-md-3 col-sm-2 my-3' key={article.url}>
-                                        <NewsItem
-                                            source={article.source}
-                                            author={article.author}
-                                            title={article.title}
-                                            description={article.description}
-                                            url={article.url}
-                                            urlToImage={article.urlToImage}
-                                            publishedAt={article.publishedAt}
-                                            content={article.content}
-                                        />
-                                    </div>
-                                );
-                            } else {
-                                return null;
-                            }
-                        })
-                    )}
+                <div className='row shadow-lg mt-4 border border-2 border-light'>
+                    <h1 className='fs-2 fw-bold my-3 border-bottom border-warning border-5'>Top Headlines</h1>
+
+                    {
+                        (this.state.articles && this.state.articles.length > 0) ?
+                            this.state.loader ? (
+                                <div className='container d-flex justify-content-center align-items-center'>
+                                    <Loader />
+                                </div>
+                            ) : (
+                                this.state.articles.map((article) => {
+                                    if (
+                                        article.title && article.title !== '[Removed]' &&
+                                        article.description && article.description !== '[Removed]'
+                                    ) {
+                                        return (
+                                            <div className='col-md-3 col-sm-2 my-3' key={article.url}>
+                                                <NewsItem
+                                                    source={article.source}
+                                                    author={article.author}
+                                                    title={article.title}
+                                                    description={article.description}
+                                                    url={article.url}
+                                                    urlToImage={article.urlToImage}
+                                                    publishedAt={article.publishedAt}
+                                                    content={article.content}
+                                                />
+                                            </div>
+                                        );
+                                    } else {
+                                        return null;
+                                    }
+                                })
+                            ) : <h1 className='text-danger fs-5 text-center fw-bold'>No News Found</h1>
+                    }
                     <div className='container d-flex justify-content-between align-items-center py-3'>
                         <button disabled={this.state.page <= 1} className='btn btn-success' onClick={this.handleChnagePagePrevious}> &laquo; Previous</button>
                         <button className='btn btn-success' id='next' disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.state.pageSize)} onClick={this.handleChnagePageNext}>Next &raquo;</button>

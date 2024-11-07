@@ -6,6 +6,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import Login from './components/Login';
+import Switch from './components/Switch';
 
 
 export default class App extends Component {
@@ -14,6 +15,7 @@ export default class App extends Component {
       <>
         <BrowserRouter>
           <Nav />
+          <Switch />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/About" element={<About />} />

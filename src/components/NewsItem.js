@@ -13,8 +13,8 @@ export default class NewsItem extends Component {
 
         return (
             <>
-                <a href={url} className="d-flex justify-content-center align-items-center bg-gradient text-decoration-none" style={{ background: "linear-gradient(to bottom right, #e~9d5ff, #c3dafe)", height: "70vh" }}>
-                    <div className="card  overflow-hidden transform transition duration-500 hover:scale-105" style={{ maxWidth: "100%", height: "100%" }}>
+                <a href={url} className="d-flex justify-content-center align-items-center text-decoration-none" style={{ height: "70vh" }}>
+                    <div className="card overflow-hidden transform transition duration-500 hover:scale-105" style={{ maxWidth: "100%", height: "100%" }}>
                         <div className="position-relative">
                             <img className="card-img-top" src={urlToImage || 'https://focusnews24x7.com/wp-content/uploads/2022/08/123-white.png'} alt="Nature scene" style={{ height: "30vh" }} />
                             <div className="position-absolute top-0 end-0 bg-teal fw-bold px-2 py-1 m-2 rounded text-sm font-weight-bold text-danger">
