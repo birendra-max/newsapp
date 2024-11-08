@@ -69,7 +69,7 @@ export default class YesterdayNews extends Component {
         return (
             <>
                 <div className="row shadow-lg" style={{ marginTop: "10%" }}>
-                    <h1 className="text-dark fs-2 my-3 fw-bold border-5 border-bottom border-warning">Yesterday News</h1>
+                    <h1 className="fs-2 my-3 fw-bold border-5 border-bottom border-warning">Yesterday News</h1>
 
                     {
                         (this.state.articles && this.state.articles.length > 0) ?
@@ -103,7 +103,7 @@ export default class YesterdayNews extends Component {
                     }
                     <div className='container d-flex justify-content-between align-items-center py-3'>
                         <button disabled={this.state.page <= 1} className='btn btn-success' onClick={this.handleChnagePagePrevious}> &laquo; Previous</button>
-                        <button className='btn btn-success' id='next' disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.state.pageSize) && this.state.totalResults >= 100} onClick={this.handleChnagePageNext}>Next &raquo;</button>
+                        <button className='btn btn-success' id='next' disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.state.pageSize) | this.state.articles.length === 0} onClick={this.handleChnagePageNext}>Next &raquo;</button>
                     </div>
                 </div>
             </>

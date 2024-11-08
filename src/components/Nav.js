@@ -15,16 +15,16 @@ export default class Nav extends Component {
                         <div className="collapse navbar-collapse" id="navbarScroll">
                             <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
                                 <li className="nav-item d-felx justify-content-center align-item-center">
-                                    <Link to="/" className="nav-link active text-light border-bottom-hover" aria-current="page"><i class="fa-solid fa-house"></i> Home</Link>
+                                    <Link to="/" className="nav-link active text-light border-bottom-hover" aria-current="page"><i className="fa-solid fa-house" style={{ fontSize: "14px" }}></i> Home</Link>
                                 </li>
-                                <li className="nav-item">
-                                    <Link to="/About" className="nav-link active text-light border-bottom-hover" aria-current="page"><i class="fa-solid fa-user"></i> About</Link>
+                                <li className="nav-item d-felx justify-content-center align-item-center">
+                                    <Link to="/About" className="nav-link active text-light border-bottom-hover" aria-current="page"><i className="fa-solid fa-user" style={{ fontSize: "14px" }}></i> About</Link>
                                 </li>
-                                <li className="nav-item">
-                                    <Link to="/Contact" className="nav-link active text-light border-bottom-hover" aria-current="page"><i class="fa-sharp-duotone fa-solid fa-phone"></i> Contact</Link>
+                                <li className="nav-item d-felx justify-content-center align-item-center">
+                                    <Link to="/Contact" className="nav-link active text-light border-bottom-hover" aria-current="page"><i className="fa-solid fa-square-phone" style={{ fontSize: "17px" }}></i> Contact</Link>
                                 </li>
-                                <li className="nav-item">
-                                    <Link to="/Login" className="nav-link active text-light border-bottom-hover" aria-current="page"><i class="fa-solid fa-right-to-bracket"></i> Log-in</Link>
+                                <li className="nav-item d-felx justify-content-center align-item-center">
+                                    <Link to="/Login" className="nav-link active text-light border-bottom-hover" aria-current="page"><i className="fa-solid fa-user-lock" style={{ fontSize: "14px" }}></i> Log-in</Link>
                                 </li>
                             </ul>
                             <form className="d-flex" role="search">
