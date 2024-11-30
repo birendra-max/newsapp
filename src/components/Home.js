@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TopHeadlines from './TopHeadlines';
-import Footer from './Footer';
 import YesterdayNews from './YesterdayNews';
 
 export default class Home extends Component {
@@ -11,7 +10,6 @@ export default class Home extends Component {
           <TopHeadlines />
           <YesterdayNews />
         </div>
-        <Footer />
       </>
     )
   }

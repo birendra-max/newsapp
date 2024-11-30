@@ -1,16 +1,13 @@
-import React, { Component } from 'react'
+import React,{Component} from "react";
 
-export default class Footer extends Component {
-    render() {
-        return (
-            <>
-                <footer className="shadow-sm text-center text-lg-start text-light mt-4" style={{ backgroundColor: "rgb(8 47 73)" }}>
-                    <div className="text-center p-3 shadow-sm" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
-                         2024©Copyright -
-                        <a className="text-light text-decoration-none" href="/"> news24x7.com</a>
-                    </div>
-                </footer>
-            </>
+export default class Footer extends Component{
+    render(){
+        return(
+            <div className="container-fluid mt-4 py-2" style={{backgroundColor:"rgb(187 247 208)"}}>
+                <div className="row">
+                    <p className="text-center fs-5 fw-bold text-black">news24x7.com @ Copyright 2024</p>
+                </div>
+            </div>
         )
     }
 }

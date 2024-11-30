@@ -7,6 +7,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Switch from './components/Switch';
+import Footer from './components/Footer';
 
 
 export default class App extends Component {
@@ -23,6 +24,7 @@ export default class App extends Component {
             <Route path="/Login" element={<Login />} />
           </Routes>
         </BrowserRouter>
+        <Footer />
       </>
     )
   }
